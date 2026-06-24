@@ -1,0 +1,11 @@
+const express = require("express");
+
+const router = express.Router();
+
+const controller = require("../controllers/estoque.controller");
+
+router.get("/", controller.listar);
+
+router.put("/:id", controller.atualizar);
+
+module.exports = router;
