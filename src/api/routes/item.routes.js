@@ -8,6 +8,12 @@ console.log(controller);
 
 router.get("/", controller.listar);
 
-//router.get("/:id", controller.buscar);
+router.get("/:id", controller.buscarPorId);
+
+router.post("/", controller.cadastrar);
+
+router.put("/:id", controller.atualizar);
+
+router.delete("/:id", controller.excluir);
 
 module.exports = router;
