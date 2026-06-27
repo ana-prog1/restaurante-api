@@ -1,0 +1,187 @@
+# API Restaurante
+# Requisitos
+Linguagem: JavaScript
+Versão do node: v24.17.0
+Versão do NPM: 11.13.0
+Banco: MySQL
+Dependências: Express (versão 8.4.2)
+Mysql2 (versão3.22.5)
+
+# Como instalar as dependências
+Mysql2
+npm install mysql2 dotenv
+Express
+npm install express
+
+# Como criar o banco 
+Instalar o MySQL Server
+Executar o script: restaurante.sql
+
+# Como iniciar API
+
+Recurso: Itens
+
+Este recurso permite consultar, cadastrar, atualizar e remover itens do cardápio do restaurante.
+
+URL base: http://localhost:1000
+
+GET /itens
+
+Objetivo: Retorna todos os itens cadastrados.
+Método HTTP
+
+Exemplo de Request: GET http://localhost:1000/itens
+Response
+Status: 200 OK
+json
+
+[
+    {
+        "idItem": 1,
+        "nomeItem": "coca cola",
+        "quantidade": 5,
+        "preco": "9"
+    },
+    {
+        "idItem": 2,
+        "nomeItem": "sprite",
+        "quantidade": 6,
+        "preco": "9"
+    },
+    {
+        "idItem": 3,
+        "nomeItem": "fanta",
+        "quantidade": 14,
+        "preco": "12"
+    },
+    {
+        "idItem": 4,
+        "nomeItem": "farinha",
+        "quantidade": 9,
+        "preco": "20"
+    },
+    {
+        "idItem": 6,
+        "nomeItem": "carne",
+        "quantidade": 5,
+        "preco": "20"
+    },
+    {
+        "idItem": 7,
+        "nomeItem": "farinha",
+        "quantidade": 9,
+        "preco": "20"
+    }
+]
+
+Possíveis códigos
+
+| Código | Significado        |
+| ------ | ------------------ |
+| 200    | Itens encontrados  |
+| 500    | Erro interno       |
+---
+
+GET /itens/{id}
+
+Objetivo : Consulta um item específico.
+
+Método
+Path Parameter
+
+| Nome | Tipo    |
+| ---- | ------- |
+| id   | Inteiro |
+
+Exemplo : GET /itens/2
+Response : 200 OK
+json
+
+{
+    "idItem": 2,
+    "nomeItem": "sprite",
+    "quantidade": 6,
+    "preco": "9"
+}
+
+Possíveis códigos
+
+| Código | Significado        |
+| ------ | ------------------ |
+| 200    | Item encontrado    |
+| 404    | Item não encontrado|
+| 500    | Erro interno       |
+
+Item não encontrado
+404 Not Found
+json
+{
+    "erro": {
+        "codigo": "ITEM_NAO_ENCONTRADO",
+        "mensagem": "Item não encontrado."
+    }
+}
+
+
+POST /itens
+
+Objetivo: Cadastrar um novo item.
+Método
+POST /itens
+Body
+json
+{
+    "nome": "carne",
+    "quantidade": 5,
+    "preco": 20
+}
+
+Resposta: 201 Created
+json
+{
+    "idItem": 8,
+    "nomeItem": "carne",
+    "quantidade": 5,
+    "preco": "20"
+}
+
+Erro de validação: 400 Bad Request
+json
+{
+    "erro": {
+        "codigo": "VALIDACAO",
+        "mensagem": "Nome, quantidade e preço são obrigatórios."
+    }
+}
+
+
+PUT /itens/{id}
+Objetivo: Atualizar um item.
+Método: PUT /itens/3
+Body
+
+json
+{
+    "nome": "fanta",
+    "quantidade": 14,
+    "preco": 12
+}
+
+Resposta:200 OK
+{
+    "mensagem": "Item atualizado com sucesso.",
+    "item": {
+        "idItem": 3,
+        "nomeItem": "fanta",
+        "quantidade": 14,
+        "preco": "12"
+    }
+}
+
+
+DELETE /itens/{id}
+
+Objetivo: Excluir um item.
+Método: DELETE /itens/5
+Resposta: 204 No Content
+
