@@ -1,0 +1,123 @@
+{
+  "info": {
+    "_postman_id": "091a9b73-a749-4266-9756-aed589387efd",
+    "name": "API restaurante",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49402937",
+    "_collection_link": "https://go.postman.co/collection/49402937-091a9b73-a749-4266-9756-aed589387efd?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Listar Itens",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:1000/itens/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "1000",
+          "path": [
+            "itens",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar por ID do Item",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:1000/itens/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "1000",
+          "path": [
+            "itens",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar por ID do Item - 404",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:1000/itens/10",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "1000",
+          "path": [
+            "itens",
+            "10"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cadastrar item",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"carne\",\r\n    \"quantidade\": 5,\r\n    \"preco\": 20\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:1000/itens",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "1000",
+          "path": [
+            "itens"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Atualizar Item",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Item",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Cadastrar Item Erro",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}

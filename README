@@ -185,3 +185,10 @@ Objetivo: Excluir um item.
 Método: DELETE /itens/5
 Resposta: 204 No Content
 
+# Como acessar documentação (Swagger)
+
+http://localhost:1000/api-docs/#/
+
+# Como rodar os testes
+
+Instalar o Postman ou pelo Swagger (testes foram feitos).
