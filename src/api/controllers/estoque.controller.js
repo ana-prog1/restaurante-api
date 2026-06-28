@@ -2,12 +2,12 @@ exports.listar=(req,res)=>{
 
     res.json([
         {
-            item:"Pizza",
-            quantidade:20
+            idEstoque: 1,
+            nomeEstoque: "principal"
         },
         {
-            item:"Refrigerante",
-            quantidade:50
+           idEstoque: 2,
+           nomeEstoque: "secundario"
         }
     ]);
 
