@@ -4,6 +4,8 @@ const router = express.Router();
 
 const controller = require("../controllers/item.controller");
 
+const autenticar = require("../middlewares/auth.middleware");
+
 console.log(controller);
 /**
  * @swagger
@@ -67,7 +69,7 @@ router.get("/:id", controller.buscarPorId);
  *       400:
  *         description: Dados inválidos.
  */
-router.post("/", controller.cadastrar);
+router.post("/", autenticar, controller.cadastrar);
 /**
  * @swagger
  * /itens/{id}:

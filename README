@@ -6,12 +6,15 @@ Versão do NPM: 11.13.0
 Banco: MySQL
 Dependências: Express (versão 8.4.2)
 Mysql2 (versão3.22.5)
+bcrypt (versão 6.0.0)
+jsonwebtoken (versão 9.0.3)
 
 # Como instalar as dependências
 Mysql2
 npm install mysql2 dotenv
 Express
 npm install express
+npm install jsonwebtoken bcrypt
 
 # Como criar o banco 
 Instalar o MySQL Server
@@ -192,3 +195,5 @@ http://localhost:1000/api-docs/#/
 # Como rodar os testes
 
 Instalar o Postman ou pelo Swagger (testes foram feitos).
+Coleção de testes: https://github.com/ana-prog1/restaurante-api/blob/master/testesPostman.json
+

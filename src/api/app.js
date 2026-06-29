@@ -4,11 +4,12 @@ const swaggerSpec = require("../../swagger");
 
 const app = express();
 
+app.use(express.json());
+
 app.use(
     "/api-docs",
     swaggerUi.serve,
-    swaggerUi.setup(swaggerSpec),
-    express.json()
+    swaggerUi.setup(swaggerSpec)
 );
 
 app.use("/auth", require("./routes/auth.routes"));

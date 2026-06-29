@@ -1,10 +1,19 @@
-exports.login = (req, res) => {
+const service = require("../../services/auth.service");
 
-    const { email, senha } = req.body;
+async function login(req, res) {
 
-    res.status(200).json({
-        token: "jwt-token",
-        tipo: "CLIENTE"
-    });
+    const token = await service.login(req.body);
 
-};
+    if (!token) {
+
+        return res.status(401).json({
+            mensagem: "Usuário ou senha inválidos."
+        });
+
+    }
+
+    res.json({ token });
+
+}
+
+module.exports = { login };
